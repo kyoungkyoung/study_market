@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:study_market/data/repository/firebase_storage_repository.dart';
+import 'package:study_market/data/repository/firestore_db_repository.dart';
+import 'package:study_market/domain/use_case/upload_use_case.dart';
 import 'package:study_market/presentation/add/add_screen.dart';
 import 'package:study_market/presentation/add/add_view_model.dart';
 
@@ -18,10 +21,14 @@ class HomeScreen extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => ChangeNotifierProvider<AddViewModel>(
-                create: (context) => AddViewModel(),
-                child: const AddScreen(),
-              ),
+              builder: (context) =>
+                  // ChangeNotifierProvider<AddViewModel>(
+                // create: (context) => AddViewModel(UploadUseCase(
+                //     FirestoreDbRepository(), FirebaseStorageRepository()
+                // )),
+                // child:
+                const AddScreen(),
+              // ),
             ),
           );
         },

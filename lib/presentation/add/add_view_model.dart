@@ -17,14 +17,21 @@ class AddViewModel with ChangeNotifier {
   final _eventController = StreamController<AddScreenUiEvent>.broadcast();
   Stream<AddScreenUiEvent> get eventStream => _eventController.stream;
 
-  final _uploadUseCase = UploadUseCase(
-    FirestoreDbRepository(),
-    FirebaseStorageRepository(),
-  );
+  final UploadUseCase _uploadUseCase;
+
+  AddViewModel(this._uploadUseCase);
 
   void setFileName(String? newFileName) {
     _fileName = newFileName;
     notifyListeners();
+  }
+
+  void init() {
+    _fileName = null;
+  }
+
+  void destroy() {
+    _fileName = null;
   }
 
   void upload() async {
