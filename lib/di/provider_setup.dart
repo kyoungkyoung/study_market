@@ -4,6 +4,6 @@ import 'package:study_market/presentation/add/add_view_model.dart';
 
 Future<List<SingleChildWidget>> getProviders() async {
   return [
-    ChangeNotifierProvider<AddViewModel>(create: (context) => AddViewModel()),
+    // ChangeNotifierProvider<AddViewModel>(create: (context) => AddViewModel()),
   ];
 }

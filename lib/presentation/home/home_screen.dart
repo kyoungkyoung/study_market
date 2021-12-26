@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:study_market/presentation/add/add_screen.dart';
+import 'package:study_market/presentation/add/add_view_model.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -15,7 +17,12 @@ class HomeScreen extends StatelessWidget {
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => const AddScreen()),
+            MaterialPageRoute(
+              builder: (context) => ChangeNotifierProvider<AddViewModel>(
+                create: (context) => AddViewModel(),
+                child: const AddScreen(),
+              ),
+            ),
           );
         },
         child: const Icon(Icons.add),
