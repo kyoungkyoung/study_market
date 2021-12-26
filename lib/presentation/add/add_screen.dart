@@ -40,6 +40,10 @@ class _AddScreenState extends State<AddScreen> {
 
   @override
   void dispose() {
+    //data가 남아있을때 dispose로 창을 닫을때 초기화 시켜준다
+    final viewModel = context.read<AddViewModel>();
+    viewModel.setFileName(null);
+
     _streamSubscription?.cancel();
     super.dispose();
   }
